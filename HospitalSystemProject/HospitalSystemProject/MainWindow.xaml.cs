@@ -27,7 +27,7 @@ namespace HospitalSystemProject
         }
         public void more()
         {
-
+            var t = 10;
         }
     }
 }
