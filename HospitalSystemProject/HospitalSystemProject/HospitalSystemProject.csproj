@@ -6,9 +6,4 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="LocalDatabase.mdf" />
-    <None Remove="LocalDatabase_log.ldf" />
-  </ItemGroup>
-
 </Project>
