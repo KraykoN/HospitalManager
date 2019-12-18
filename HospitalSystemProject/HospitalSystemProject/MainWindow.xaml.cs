@@ -33,6 +33,7 @@ namespace HospitalSystemProject
             dashboard.Show();
             this.Close();
         }
+
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
 
@@ -55,12 +56,19 @@ namespace HospitalSystemProject
                 int count2 = Convert.ToInt32(sqlCmd2.ExecuteScalar());
                 if (count1 == 1)
                 {
-                    doctor_menu dashboard = new doctor_menu();
+                    
+                    String query3 = "SELECT doctor_id FROM doctor WHERE phone=@phone";
+                    SqlCommand sqlCmd3 = new SqlCommand(query3, sqlCon);
+                    sqlCmd3.Parameters.AddWithValue("@phone", txtUsername.Text);
+                    string id = Convert.ToString(sqlCmd3.ExecuteScalar());
+                    doctor_menu dashboard = new doctor_menu(id);
+                    
                     dashboard.Show();
                     this.Close();
                 }
                 else if(count2 == 1)
                 {
+                    
                     user_menu dashboard = new user_menu();
                     dashboard.Show();
                     this.Close();
