@@ -40,3 +40,9 @@ C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\Hospi
 C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\HospitalSystemProject\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\HospitalSystemProject\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\HospitalSystemProject\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
+C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\HospitalSystemProject\obj\Debug\netcoreapp3.0\doctor_menu.g.cs
+C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\HospitalSystemProject\obj\Debug\netcoreapp3.0\Registration.g.cs
+C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\HospitalSystemProject\obj\Debug\netcoreapp3.0\user_menu.g.cs
+C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\HospitalSystemProject\obj\Debug\netcoreapp3.0\doctor_menu.baml
+C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\HospitalSystemProject\obj\Debug\netcoreapp3.0\Registration.baml
+C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\HospitalSystemProject\obj\Debug\netcoreapp3.0\user_menu.baml

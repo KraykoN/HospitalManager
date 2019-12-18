@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_0
 C:\Users\Nikita\source\repos\KraykoN\HospitalManager\HospitalSystemProject\HospitalSystemProject\App.xaml
-11151548125
+41418140887
 
-31652720282
+61652830325
 199638806439
-MainWindow.xaml;
+doctor_menu.xaml;MainWindow.xaml;Registration.xaml;user_menu.xaml;
 
-False
+True
 

@@ -35,19 +35,31 @@ namespace HospitalSystemProject
             {
                 if (sqlCon.State == ConnectionState.Closed)
                     sqlCon.Open();
-                String query = "SELECT COUNT(1) FROM doctor WHERE phone=@phone AND password=@password";
-                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                sqlCmd.CommandType = CommandType.Text;
-                sqlCmd.Parameters.AddWithValue("@phone", txtUsername.Text);
-                sqlCmd.Parameters.AddWithValue("@password", txtPassword.Password);
-                int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
-                if (count == 1)
+                String query1 = "SELECT COUNT(1) FROM doctor WHERE phone=@phone AND password=@password";
+                String query2 = "SELECT COUNT(1) FROM patient WHERE phone=@phone AND password=@password";
+                SqlCommand sqlCmd1 = new SqlCommand(query1, sqlCon);
+                SqlCommand sqlCmd2 = new SqlCommand(query2, sqlCon);
+                sqlCmd1.CommandType = CommandType.Text;
+                sqlCmd2.CommandType = CommandType.Text;
+                sqlCmd1.Parameters.AddWithValue("@phone", txtUsername.Text);
+                sqlCmd2.Parameters.AddWithValue("@phone", txtUsername.Text);
+                sqlCmd1.Parameters.AddWithValue("@password", txtPassword.Password);
+                sqlCmd2.Parameters.AddWithValue("@password", txtPassword.Password);
+                int count1 = Convert.ToInt32(sqlCmd1.ExecuteScalar());
+                int count2 = Convert.ToInt32(sqlCmd2.ExecuteScalar());
+                if (count1 == 1)
                 {
-                    MainWindow dashboard = new MainWindow();
+                    doctor_menu dashboard = new doctor_menu();
                     dashboard.Show();
                     this.Close();
                 }
-                else
+                else if(count2 == 1)
+                {
+                    user_menu dashboard = new user_menu();
+                    dashboard.Show();
+                    this.Close();
+                }
+                else if(count1!=1&&count2!=1)
                 {
                     MessageBox.Show("Username or password is incorrect.");
                 }
@@ -61,27 +73,5 @@ namespace HospitalSystemProject
                 sqlCon.Close();
             }
         }
-        //private void Loading_Password()
-        //{
-        //string Connect = "Server=db4free.net;Port=3306;Database=hospital_db;Uid=nikita_hse;Pwd=Asdasdasd;";
-        ////MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-        ////builder.Server = "db4free.net";
-        ////builder.UserID = "nikita_hse";
-        ////builder.Password = "Asdasdasd";
-        ////builder.Database = "hospital_db";
-        ////builder.Port = Convert.ToUInt16("3306");
-        ////connection = new MySqlConnection(builder.ToString());
-        ////connection.Open();
-        //string CommandText = "INSERT INTO HW3Database (id, name, password, phone) VALUES (1, 'Иван Иванов', '123123', '89031506062')";
-        ////MySqlConnection myConnection = new MySqlConnection(builder.ToString());
-        //MySqlConnection myConnection = new MySqlConnection(Connect);
-        //myConnection.Open();
-        //MySqlCommand myCommand = new MySqlCommand(CommandText, myConnection);
-        //// выполняем запрос
-        //myCommand.ExecuteNonQuery();
-        //// закрываем подключение к БД
-        //myConnection.Close();
-
-        //}
     }
 }
