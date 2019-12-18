@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nikita\\source\\repos\\KraykoN\\HospitalManager\\HospitalSystemProject\\HospitalSystemProject\\HospitalSystemProject.csproj": {}
+    "C:\\Users\\User\\source\\repos\\HospitalManager\\HospitalSystemProject\\HospitalSystemProject\\HospitalSystemProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nikita\\source\\repos\\KraykoN\\HospitalManager\\HospitalSystemProject\\HospitalSystemProject\\HospitalSystemProject.csproj": {
+    "C:\\Users\\User\\source\\repos\\HospitalManager\\HospitalSystemProject\\HospitalSystemProject\\HospitalSystemProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nikita\\source\\repos\\KraykoN\\HospitalManager\\HospitalSystemProject\\HospitalSystemProject\\HospitalSystemProject.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\HospitalManager\\HospitalSystemProject\\HospitalSystemProject\\HospitalSystemProject.csproj",
         "projectName": "HospitalSystemProject",
-        "projectPath": "C:\\Users\\Nikita\\source\\repos\\KraykoN\\HospitalManager\\HospitalSystemProject\\HospitalSystemProject\\HospitalSystemProject.csproj",
-        "packagesPath": "C:\\Users\\Nikita\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikita\\source\\repos\\KraykoN\\HospitalManager\\HospitalSystemProject\\HospitalSystemProject\\obj\\",
+        "projectPath": "C:\\Users\\User\\source\\repos\\HospitalManager\\HospitalSystemProject\\HospitalSystemProject\\HospitalSystemProject.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\HospitalManager\\HospitalSystemProject\\HospitalSystemProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Nikita\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

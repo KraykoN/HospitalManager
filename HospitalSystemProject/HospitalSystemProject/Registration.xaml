@@ -7,27 +7,26 @@
         mc:Ignorable="d"
         Title="Registration" Height="450" Width="800">
     <Border Background="#2e3137" CornerRadius="20" Margin="20,0,20,0" Height="400">
-        <StackPanel Margin="20">
+        <StackPanel Margin="20,10,20,10">
             <Label Content="Registration" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
-            <Separator></Separator>
-            <StackPanel>
-                <Label Content="Name" Foreground="White" Width="659"/>
-                <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Background="#545d6a" Foreground="White" FontSize="18" Width="260" Height="35" Margin="27, 10, 10, 1" TextChanged="txtUsername_TextChanged"/>
-                <Label Content="Surname" Foreground="White" Width="659"/>
-                <TextBox Name="txtPassword" Background="#545d6a" HorizontalAlignment="Left" Margin="27, 10, 10, 1" Foreground="White" Height="35" FontSize="18" Width="260"/>
-                <Label Content="Date of Birth" Foreground="White" Width="665"/>
-                <TextBox x:Name="txtPassword_Copy" Background="#545d6a" HorizontalAlignment="Left" Foreground="White" Margin="27, 10, 10, 1" Height="35" FontSize="18" Width="260"/>
-            </StackPanel>
-            <StackPanel Margin="10,-190,10,20">
-                <Label Content="Gender" Foreground="White" Width="260" HorizontalAlignment="Right"  Height="28"/>
-                <RadioButton Content="M" Foreground="White"  Width="260" HorizontalAlignment="Right"/>
-                <RadioButton Content="F" Foreground="White"  Width="260" HorizontalAlignment="Right"/>
-                <Label Content="Phone" Foreground="White"  Width="260" HorizontalAlignment="Right"/>
-                <PasswordBox x:Name="txtPassword_Copy1" Background="#545d6a" Foreground="White" FontSize="18"  Width="260" HorizontalAlignment="Right"/>
-                <Label Content="Password" Foreground="White"  Width="260" HorizontalAlignment="Right"/>
-                <PasswordBox x:Name="txtPassword_Copy12" Background="#545d6a" Foreground="White" FontSize="18"  Width="260" HorizontalAlignment="Right"/>
-            </StackPanel>
-            <Button x:Name="btnSubmit_Copy" Content="Sign up" Background="#545d6a" Foreground="White" FontSize="18" Height="32" Width="270" Margin="50"/>
+            <Grid>
+                <Label Content="Name" Foreground="White" Width="659" Margin="10,27,51,-27"/>
+                <TextBox x:Name="name" HorizontalAlignment="Left" Background="#545d6a" Foreground="White" FontSize="18" Width="290" Height="35" Margin="10,55,0,-44"/>
+                <Label Content="Surname" Foreground="White" Width="659" Margin="10,90,51,-90"/>
+                <TextBox Name="surname" Background="#545d6a" HorizontalAlignment="Left" Margin="10,113,0,-102" Foreground="White" Height="35" FontSize="18" Width="290"/>
+                <Label Content="Date of Birth" Foreground="White" Width="665" Margin="10,148,45,-148"/>
+                <TextBox x:Name="dob" Background="#545d6a" HorizontalAlignment="Left" Foreground="White" Margin="10,171,0,-160" Height="35" FontSize="18" Width="290"/>
+                <Button x:Name="btn" Content="Sign up" Click="btnSubmit_Click" Background="#545d6a" Foreground="White" FontSize="18" Width="270" Margin="205,268,245,-260"/>
+                <Label Content="Phone" Foreground="White" Width="659" Margin="416,85,-355,-85"/>
+                <TextBox x:Name="phone" HorizontalAlignment="Left" Background="#545d6a" Foreground="White" FontSize="18" Width="290" Height="35" Margin="416,113,0,-102"/>
+                <Label Content="Gender" Foreground="White" Width="659" Margin="416,26,-355,-26"/>
+                <RadioButton x:Name="RB1"  Content="M" Foreground="White" Margin="455,52,159,-41"/>
+                <RadioButton x:Name="RB2" Content="F" Foreground="White" Margin="590,50,33,-44"/>
+                <Label Content="Password" Foreground="White" Width="659" Margin="416,143,-355,-143"/>
+                <PasswordBox x:Name="password" HorizontalAlignment="Left" Background="#545d6a" Foreground="White" FontSize="18" Width="290" Height="35" Margin="416,171,0,-160"/>
+            </Grid>
+
+
         </StackPanel>
     </Border>
 </Window>

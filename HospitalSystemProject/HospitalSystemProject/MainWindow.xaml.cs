@@ -27,6 +27,12 @@ namespace HospitalSystemProject
             
 
         }
+        private void btnSubmit_Click1(object sender, RoutedEventArgs e)
+        {
+            Registration dashboard = new Registration();
+            dashboard.Show();
+            this.Close();
+        }
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
 
