@@ -8,16 +8,16 @@ mc:Ignorable="d"
 Title="doctor_menu" Height="560" Width="800">
     <Border Background="#2e3137" CornerRadius="20" Margin="20,0,20,0" Height="510" Width="760">
         <Grid>
-            <Button Margin="16,144,552,327" FontSize="18" Foreground="White" Background="DarkGray" Click="pI" >Patient information</Button>
-            <Button Margin="16,212,552,259" FontSize="18" Foreground="White" Background="DarkGray" Click="search" >Doctor's Appointment</Button>
+            <Button Margin="16,181,552,290" FontSize="18" Foreground="White" Background="DarkGray" Click="pI" >Patient information</Button>
+            <Button Margin="16,245,552,226" FontSize="18" Foreground="White" Background="DarkGray" Click="search" >Doctor's Appointment</Button>
 
-            <Button Margin="16,284,552,187" Foreground="White" FontSize="18" Background="DarkGray">Doctor's info</Button>
-            <Button FontSize="18" Margin="16,417,552,54" Foreground="White" Background="SlateGray">Log Out</Button>
+            <Button Margin="16,309,552,162" Foreground="White" FontSize="18" Background="DarkGray" Click="dI">Doctor's info</Button>
+            <Button FontSize="18" Margin="16,417,552,54" Foreground="White" Background="SlateGray" Click="l_out">Log Out</Button>
 
             <Line Stroke="White" X1="1" Y1="510" Margin="223,0,531,-10" />
             <Image Source="C:\Users\User\source\repos\HospitalManager\HospitalSystemProject\HospitalSystemProject\Images\medicine-logo-png-1.png" Margin="327,129,168,137"></Image>
-            <DataGrid Visibility="Hidden" Name="d_a" Margin="262,75,77,219" />
             <DataGrid Visibility="Hidden" Name="d_info" Margin="262,75,77,219" />
+            <DataGrid Visibility="Hidden" Name="v_info" Margin="262,75,77,219" />
             <Grid x:Name="patient_info" Visibility="Hidden" HorizontalAlignment="Left" Height="378" Margin="286,62,0,0" VerticalAlignment="Top" Width="374">
                 <Label Content="Your info" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="136,26,0,0" VerticalAlignment="Top" Height="39" Width="214"/>
                 <TextBlock HorizontalAlignment="Left" Margin="-5,112,0,0" Text="Name" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="90"/>
@@ -41,6 +41,7 @@ Title="doctor_menu" Height="560" Width="800">
             <Button x:Name="dp1" Visibility="Hidden" FontSize="18" Margin="606,238,35,238" Foreground="White" Background="SlateGray" Content="Choose" Click="bc2"/>
             <Button x:Name="CB11" Visibility="Hidden" FontSize="18" Margin="606,164,35,312" Foreground="White" Background="SlateGray" Content="Choose" Click="bc1"/>
             <Button x:Name="SB" Visibility="Hidden" FontSize="18" Margin="439,393,202,83" Foreground="White" Background="SlateGray" Content="Save" Click="bc3"/>
+            <Button Margin="16,116,552,355" FontSize="18" Foreground="White" Background="DarkGray" Click="vI" Content="Future visits" />
         </Grid>
     </Border>
 </Window>

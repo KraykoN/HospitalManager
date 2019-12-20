@@ -26,20 +26,53 @@ namespace HospitalSystemProject
         {
             InitializeComponent();
             FillDataGrid1(id);
+            FillDataGrid2();
+            FillDataGrid3(id);
             binding();
         }
         private void pI(object sender, RoutedEventArgs e)
         {
+            v_info.Visibility = Visibility.Hidden;
             CB.Visibility = Visibility.Hidden;
             CB11.Visibility = Visibility.Hidden;
             CB.Visibility = Visibility.Hidden;
+            d_info.Visibility = Visibility.Hidden;
             patient_info.Visibility = Visibility.Visible;
+        }
+
+        private void vI(object sender, RoutedEventArgs e)
+        {
+            v_info.Visibility = Visibility.Visible;
+            CB.Visibility = Visibility.Hidden;
+            CB11.Visibility = Visibility.Hidden;
+            CB.Visibility = Visibility.Hidden;
+            d_info.Visibility = Visibility.Hidden;
+            patient_info.Visibility = Visibility.Hidden;
+        }
+
+        private void dI(object sender, RoutedEventArgs e)
+        {
+            v_info.Visibility = Visibility.Hidden;
+            CB.Visibility = Visibility.Hidden;
+            CB11.Visibility = Visibility.Hidden;
+            CB.Visibility = Visibility.Hidden;
+            d_info.Visibility = Visibility.Visible;
+            patient_info.Visibility = Visibility.Hidden;
+        }
+        private void l_out(object sender, RoutedEventArgs e)
+        {
+            
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
         }
 
         private void search(object sender, RoutedEventArgs e)
         {
+            v_info.Visibility = Visibility.Hidden;
             lbl.Visibility = Visibility.Visible;
             patient_info.Visibility = Visibility.Hidden;
+            d_info.Visibility = Visibility.Hidden;
             CB.Visibility = Visibility.Visible;
             CB11.Visibility = Visibility.Visible;
         }
@@ -59,6 +92,7 @@ namespace HospitalSystemProject
             string sn = CB.Text;
             DateTime dateTime = Convert.ToDateTime(dp.Text);
             SqlConnection sqlCon = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = hospital_db; Integrated Security = True; ");
+            sqlCon.Open();
             string sql1 = "Select doctor_id from doctor where surname=@surname";
             SqlCommand sqlCmd1 = new SqlCommand(sql1, sqlCon);
             sqlCmd1.Parameters.AddWithValue("@surname", sn);
@@ -162,6 +196,57 @@ namespace HospitalSystemProject
                     break;
                 }
                 itemsIndex++;
+            }
+        }
+
+        private void FillDataGrid2()
+        {
+            //SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=hospital_db; Integrated Security=True;");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=hospital_db; Integrated Security=True;");
+            try
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                    sqlCon.Open();
+                String CmdString2 = "Select name, surname, position, db, phone from doctor";
+                SqlCommand sqlCmd2 = new SqlCommand(CmdString2, sqlCon);
+                SqlDataAdapter sda = new SqlDataAdapter(sqlCmd2);
+                DataTable dt = new DataTable("All wards");
+                sda.Fill(dt);
+                d_info.ItemsSource = dt.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlCon.Close();
+            }
+        }
+
+        private void FillDataGrid3(string id)
+        {
+            //SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=hospital_db; Integrated Security=True;");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=hospital_db; Integrated Security=True;");
+            try
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                    sqlCon.Open();
+                String CmdString5 = "Select name, surname, date from visit join doctor on visit.doctor_id=doctor.doctor_id where patient_id=@id and duration is null";
+                SqlCommand sqlCmd5 = new SqlCommand(CmdString5, sqlCon);
+                SqlDataAdapter sda = new SqlDataAdapter(sqlCmd5);
+                sqlCmd5.Parameters.AddWithValue("@id", Convert.ToInt32(id));
+                DataTable x = new DataTable("Your visits");
+                sda.Fill(x);
+                v_info.ItemsSource = x.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlCon.Close();
             }
         }
     }

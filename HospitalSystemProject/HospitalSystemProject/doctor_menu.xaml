@@ -8,21 +8,65 @@ mc:Ignorable="d"
 Title="doctor_menu" Height="560" Width="800">
     <Border Background="#2e3137" CornerRadius="20" Margin="20,0,20,0" Height="510" Width="760">
         <Grid>
+            <Label Name="TimeLabel" FontSize="18" Foreground="White" Margin="27,8,563,458" />
             <Button Height="30" Width="170" Margin="27,74,563,406" Foreground="White" Background="DarkGray" Click="PatientsInfo_Click2">My Schedule</Button>
-            <Button Height="30" Width="170" Margin="27,142,563,338" Foreground="White" Background="DarkGray">My Statistics</Button>
+            <Button Height="30" Width="170" Margin="27,142,563,338" Foreground="White" Background="DarkGray" Click="MyStatistics_Click">My Statistics</Button>
             <Button Height="30" Width="170" Margin="27,210,563,270" Foreground="White" Background="DarkGray" Click="PatientsInfo_Click3">Add new Staff</Button>
 
             <Button Height="30" Width="170" Margin="27,276,563,204" Foreground="White" Background="DarkGray" Click="PatientsInfo_Click1">Patients Info</Button>
-            <Button Height="30" Width="170" Margin="27,343,563,137" Foreground="White" Background="DarkGray">Patient CheckOut</Button>
-            <Button Height="30" Width="170" Margin="27,410,563,70" Foreground="White" Background="SlateGray">Log Out</Button>
+            <Button Height="30" Width="170" Margin="27,343,563,137" Foreground="White" Background="DarkGray" Click="CheckOut_Click2">Patient CheckOut</Button>
+            <Button Height="30" Width="170" Margin="27,410,563,70" Foreground="White" Background="SlateGray" Click="LogOut_Click">Log Out</Button>
 
             <Line Stroke="White" X1="1" Y1="510" Margin="223,0,531,-10" />
             <Image Source="C:\Users\User\source\repos\HospitalManager\HospitalSystemProject\HospitalSystemProject\Images\medicine-logo-png-1.png" Margin="327,129,168,137"></Image>
-            <DataGrid Visibility="Hidden" Name="Patients_info" Margin="262,75,77,219" />
-            <DataGrid Visibility="Hidden" Name="My_schedule" Margin="262,75,77,219" />
-            <TextBlock x:Name="ph" Visibility="hidden" Text="" HorizontalAlignment="Left" Margin="563,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="226"/>
-            <Grid x:Name="Staff_addition" Visibility="Hidden" HorizontalAlignment="Left" Height="378" Margin="290,10,0,0" VerticalAlignment="Top" Width="374">
-                <Label Content="New ward registration" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top" Height="39" Width="214"/>
+            <Grid Name="Stata" Visibility="Hidden">
+                <Canvas Background="#2e3137" Margin="303,51,10,135"/>
+
+
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="410,90,0,0">
+                    <TextBlock Text="Start Date:" FontSize="10" Foreground="White" ></TextBlock>
+                    <TextBox  Height="0,20" Width="150" Name="StartDate"/>
+                    <TextBlock Text="Finish Date:" FontSize="10" Foreground="White" ></TextBlock>
+                    <TextBox   Height="0,20" Width="150" Name="FinishDate"/>
+                </StackPanel>
+                <TextBlock Margin="242,90,332,262" FontSize="18" Foreground="White"> Choose date to find <LineBreak/>  the number of <LineBreak/>  all doctors' visits <LineBreak/>  per period: <LineBreak/>(DD-MM-YYYY)</TextBlock>
+                <Button Height="0,20" Width="130" Content="Calculate" Margin="410,173,220,317" Click="Calculate_Click"></Button>
+                <TextBlock Margin="242,321,155,97" FontSize="18" Foreground="White">The number of visits you have today:</TextBlock>
+                <TextBlock x:Name="ProfitBox" Background="White" FontSize="29" Margin="582,107,34,327"></TextBlock>
+                <TextBlock x:Name="TodayVisits" FontSize="35" Foreground="White" Margin="551,303,65,131"/>
+
+
+            </Grid>
+            <Grid Name="Patients_info" Visibility="Hidden">
+                <Label Content="Information about patients" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="343,40,0,0" VerticalAlignment="Top" Height="54" Width="254"/>
+                <DataGrid Name="Patients_info1" Margin="280,129,59,216" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="Snow" />
+            </Grid>
+            <Grid Name="CheckOut" Visibility="Hidden">
+                <Label Content="Patient's CheckOut" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="362,41,0,0" VerticalAlignment="Top" Height="54" Width="254"/>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="380,120,0,0" Width="146" Height="187">
+                    <TextBlock Text="Choose date for checkout:" Foreground="White" FontSize="10" ></TextBlock>
+                    <TextBox  Height="0,20" Width="150" Name="date1"/>
+                    <TextBlock Text="Patient's surname:" Foreground="White" FontSize="10" ></TextBlock>
+                    <TextBox   Height="0,20" Width="150" x:Name="surname1"/>
+                    <TextBlock Text="Sesion duration:" Foreground="White" FontSize="10" ></TextBlock>
+                    <TextBox   Height="0,20" Width="150" x:Name="duration1"/>
+                    <TextBlock Text="Additional payment:" Foreground="White" FontSize="10" ></TextBlock>
+                    <TextBox   Height="0,20" Width="150" x:Name="additional_payment1"/>
+                    <TextBlock Text="Patient's disease:" Foreground="White" FontSize="10" ></TextBlock>
+                    <TextBox   Height="0,20" Width="150" x:Name="disease1"/>
+                </StackPanel>
+                <Button Content="Add CheckOut" Height="0,20" Width="150" Margin="380,329,230,161" Click="CheckOut_Click">
+
+                </Button>
+            </Grid>
+
+            <Grid Name="My_schedule" Visibility="Hidden" >
+                <Label Content="My Schedule" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="394,41,0,0" VerticalAlignment="Top" Height="54" Width="214"/>
+                <DataGrid  Name="My_schedule1" Margin="280,129,59,216" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="Snow" />
+
+            </Grid>
+            <Grid x:Name="Staff_addition" Visibility="Hidden" HorizontalAlignment="Left" Height="378" Margin="304,22,0,0" VerticalAlignment="Top" Width="374">
+                <Label Content="New ward registration" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="90,19,0,0" VerticalAlignment="Top" Height="54" Width="214"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,110,0,0" Text="Name" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="90"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,145,0,0" Text="Surname" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="90"/>
                 <TextBlock HorizontalAlignment="Left" Margin="0,179,0,0" Text="Date of birth" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="109"/>
@@ -36,7 +80,7 @@ Title="doctor_menu" Height="560" Width="800">
                 <TextBox x:Name="phone" HorizontalAlignment="Left" Margin="136,212,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="28"/>
                 <PasswordBox x:Name="password" HorizontalAlignment="Left" Margin="136,245,0,0" VerticalAlignment="Top" Width="214" Height="28"/>
                 <DatePicker x:Name="datepicker1" HorizontalAlignment="Left" Margin="136,179,0,0" VerticalAlignment="Top" Width="214" Height="28"/>
-                <ComboBox x:Name="combobox1" HorizontalAlignment="Left" Margin="137,281,0,0" VerticalAlignment="Top" Width="213"  Height="28">
+                <ComboBox x:Name="combobox1" HorizontalAlignment="Left" Margin="137,281,0,0" VerticalAlignment="Top" Width="213" Height="28">
                     <TextBlock><Run Text="Nurse"/></TextBlock>
                     <TextBlock><Run Text="Surgeon"/></TextBlock>
                     <TextBlock><Run Text="Therapist"/></TextBlock>
@@ -47,9 +91,10 @@ Title="doctor_menu" Height="560" Width="800">
                     <TextBlock><Run Text="Gynecologist"/></TextBlock>
                 </ComboBox>
                 <TextBox x:Name="salary" HorizontalAlignment="Left" Margin="136,314,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="28"/>
-                <Button Height="30" Width="170" Margin="410,405,180,75" Foreground="White" Background="SlateGray" Content="Register" Click="insert_ward"/>
+                <Button Height="30" Width="170" Margin="90,420,114,-72" Foreground="White" Background="SlateGray" Content="Register" Click="insert_ward"/>
+
             </Grid>
-            <DatePicker HorizontalAlignment="Left" Margin="366,89,0,0" VerticalAlignment="Top" Width="244"/>
+
 
 
         </Grid>

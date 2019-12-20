@@ -21,6 +21,8 @@ namespace HospitalSystemProject
     /// </summary>
     public partial class MainWindow : Window
     {
+//        Before starting the program for the first time, be sure to change the path to the image in both classes user_menu and doctor_menu.Also, for starting ownload and restore the database backup for the project.This is uploaded to the github archive.zip.Be sure to follow her hospital name "hospital_db", run only on localhost in Sql Server Management Studio.
+//Please observe the code entry settings in the program.
         public MainWindow()
         {
             InitializeComponent();
