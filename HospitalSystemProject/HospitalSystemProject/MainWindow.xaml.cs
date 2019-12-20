@@ -68,8 +68,12 @@ namespace HospitalSystemProject
                 }
                 else if(count2 == 1)
                 {
-                    
-                    user_menu dashboard = new user_menu();
+
+                    String query4 = "SELECT patient_id FROM patient WHERE phone=@phone";
+                    SqlCommand sqlCmd3 = new SqlCommand(query4, sqlCon);
+                    sqlCmd3.Parameters.AddWithValue("@phone", txtUsername.Text);
+                    string id = Convert.ToString(sqlCmd3.ExecuteScalar());
+                    user_menu dashboard = new user_menu(id);
                     dashboard.Show();
                     this.Close();
                 }

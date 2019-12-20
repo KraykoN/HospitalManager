@@ -28,18 +28,64 @@ namespace HospitalSystemProject
             FillDataGrid2();
         }
 
-
+        
         private void PatientsInfo_Click1(object sender, RoutedEventArgs e)
         {
+            Staff_addition.Visibility = Visibility.Hidden;
             My_schedule.Visibility = Visibility.Hidden;
             Patients_info.Visibility = Visibility.Visible;
         }
 
         private void PatientsInfo_Click2(object sender, RoutedEventArgs e)
         {
+            Staff_addition.Visibility = Visibility.Hidden;
             Patients_info.Visibility = Visibility.Hidden;
             My_schedule.Visibility = Visibility.Visible;
         }
+
+        private void PatientsInfo_Click3(object sender, RoutedEventArgs e)
+        {
+            Patients_info.Visibility = Visibility.Hidden;
+            My_schedule.Visibility = Visibility.Hidden;
+            Staff_addition.Visibility = Visibility.Visible;
+        }
+
+        private void insert_ward(object sender, RoutedEventArgs e)
+        {
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=hospital_db; Integrated Security=True;");
+            sqlCon.Open();
+            string sql1 = "";
+            sql1 = "Select max(doctor_id) from doctor";
+            SqlCommand sqlCmd1 = new SqlCommand(sql1, sqlCon);
+            int id = Convert.ToInt32(sqlCmd1.ExecuteScalar()) + 1;
+
+            using (SqlConnection openCon = new SqlConnection(@"Data Source = localhost\SQLEXPRESS; Initial Catalog = hospital_db; Integrated Security = True; "))
+            {
+                string saveStaff = "Insert into doctor (doctor_id, position, name, surname, db, phone,  password, salary) values(@id, @position, @name, @surname, @db, @phone,  @password, @salary)";
+
+                using (SqlCommand querySaveStaff = new SqlCommand(saveStaff))
+                {
+                    querySaveStaff.Connection = openCon;
+                    querySaveStaff.Parameters.AddWithValue("@id", id);
+                    querySaveStaff.Parameters.AddWithValue("@position", combobox1.Text);
+                    querySaveStaff.Parameters.AddWithValue("@name", name.Text);
+                    querySaveStaff.Parameters.AddWithValue("@surname", surname.Text);
+                    querySaveStaff.Parameters.AddWithValue("@db", Convert.ToDateTime(datepicker1.SelectedDate));
+                    querySaveStaff.Parameters.AddWithValue("@phone", phone.Text);
+                    querySaveStaff.Parameters.AddWithValue("@password", password.Password);
+                    querySaveStaff.Parameters.AddWithValue("@salary", Convert.ToInt32(salary.Text));
+
+                    openCon.Open();
+
+                    querySaveStaff.ExecuteNonQuery();
+                }
+            }
+            sqlCon.Close();
+            MessageBox.Show($"{name.Text} {surname.Text} has been successfully added to the system!");
+
+        }
+
+
 
         private void FillDataGrid1(string id)
         {
@@ -93,5 +139,6 @@ namespace HospitalSystemProject
                 sqlCon.Close();
             }
         }
+
     }
 }

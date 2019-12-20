@@ -10,16 +10,48 @@ Title="doctor_menu" Height="560" Width="800">
         <Grid>
             <Button Height="30" Width="170" Margin="27,74,563,406" Foreground="White" Background="DarkGray" Click="PatientsInfo_Click2">My Schedule</Button>
             <Button Height="30" Width="170" Margin="27,142,563,338" Foreground="White" Background="DarkGray">My Statistics</Button>
-            <Button Height="30" Width="170" Margin="27,210,563,270" Foreground="White" Background="DarkGray">Add new Staff</Button>
+            <Button Height="30" Width="170" Margin="27,210,563,270" Foreground="White" Background="DarkGray" Click="PatientsInfo_Click3">Add new Staff</Button>
+
             <Button Height="30" Width="170" Margin="27,276,563,204" Foreground="White" Background="DarkGray" Click="PatientsInfo_Click1">Patients Info</Button>
             <Button Height="30" Width="170" Margin="27,343,563,137" Foreground="White" Background="DarkGray">Patient CheckOut</Button>
-            <Button Height="30" Width="170" Margin="27,410,563,70" Foreground="White" Background="DarkGray">Log Out</Button>
+            <Button Height="30" Width="170" Margin="27,410,563,70" Foreground="White" Background="SlateGray">Log Out</Button>
 
             <Line Stroke="White" X1="1" Y1="510" Margin="223,0,531,-10" />
             <Image Source="C:\Users\User\source\repos\HospitalManager\HospitalSystemProject\HospitalSystemProject\Images\medicine-logo-png-1.png" Margin="327,129,168,137"></Image>
             <DataGrid Visibility="Hidden" Name="Patients_info" Margin="262,75,77,219" />
             <DataGrid Visibility="Hidden" Name="My_schedule" Margin="262,75,77,219" />
             <TextBlock x:Name="ph" Visibility="hidden" Text="" HorizontalAlignment="Left" Margin="563,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="226"/>
+            <Grid x:Name="Staff_addition" Visibility="Hidden" HorizontalAlignment="Left" Height="378" Margin="290,10,0,0" VerticalAlignment="Top" Width="374">
+                <Label Content="New ward registration" FontSize="20" Foreground="White" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top" Height="39" Width="214"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,110,0,0" Text="Name" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="90"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,145,0,0" Text="Surname" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="90"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,179,0,0" Text="Date of birth" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="109"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,212,0,0" Text="Phone" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="109"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,246,0,0" Text="Password" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="109"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,281,0,0" Text="Position" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="109"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,314,0,0" Text="Salary" FontSize="18" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="109"/>
+
+                <TextBox x:Name="name" HorizontalAlignment="Left" Margin="136,112,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="28"/>
+                <TextBox x:Name="surname" HorizontalAlignment="Left" Margin="136,145,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="28"/>
+                <TextBox x:Name="phone" HorizontalAlignment="Left" Margin="136,212,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="28"/>
+                <PasswordBox x:Name="password" HorizontalAlignment="Left" Margin="136,245,0,0" VerticalAlignment="Top" Width="214" Height="28"/>
+                <DatePicker x:Name="datepicker1" HorizontalAlignment="Left" Margin="136,179,0,0" VerticalAlignment="Top" Width="214" Height="28"/>
+                <ComboBox x:Name="combobox1" HorizontalAlignment="Left" Margin="137,281,0,0" VerticalAlignment="Top" Width="213"  Height="28">
+                    <TextBlock><Run Text="Nurse"/></TextBlock>
+                    <TextBlock><Run Text="Surgeon"/></TextBlock>
+                    <TextBlock><Run Text="Therapist"/></TextBlock>
+                    <TextBlock><Run Text="Dentist"/></TextBlock>
+                    <TextBlock><Run Text="Psychiatrist"/></TextBlock>
+                    <TextBlock><Run Text="Allergist"/></TextBlock>
+                    <TextBlock><Run Text="Cardiologist"/></TextBlock>
+                    <TextBlock><Run Text="Gynecologist"/></TextBlock>
+                </ComboBox>
+                <TextBox x:Name="salary" HorizontalAlignment="Left" Margin="136,314,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="28"/>
+                <Button Height="30" Width="170" Margin="410,405,180,75" Foreground="White" Background="SlateGray" Content="Register" Click="insert_ward"/>
+            </Grid>
+            <DatePicker HorizontalAlignment="Left" Margin="366,89,0,0" VerticalAlignment="Top" Width="244"/>
+
+
         </Grid>
     </Border>
 </Window>

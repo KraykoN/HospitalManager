@@ -42,6 +42,10 @@
               "target": "Package",
               "version": "[8.0.18, )"
             },
+            "SilverlightToolkit-Core": {
+              "target": "Package",
+              "version": "[4.2010.4, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.0, )"
